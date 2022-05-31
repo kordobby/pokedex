@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { useDispatch, useSelector } from "react-redux";
-import { deletePokeFB } from "./redux/modules/pokeReducer";
+import { useSelector } from "react-redux";
 
 function PostBox( ) {
   const myPokeList = useSelector((state) => state.pokeReducer.list);
-  
-  const pokeCard = myPokeList.map((value) => (<PostGrid id = {index} key = {value.id}>
+
+
+  const pokeCard = myPokeList.map((value, index) => (<PostGrid id = {index} key = {value.id}>
     <PokePost className = "pokepost--box">
       <span>No.{value.pokeIdx}</span>
       <span>{value.pokeName}</span>

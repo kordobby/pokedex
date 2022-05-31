@@ -1,6 +1,6 @@
 
 /* Router setup */
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 
 /* Pages setup */
 import Home from './pages/Home';
@@ -28,9 +28,9 @@ function App() {
 
   return (
     <>
-    <HeaderContainer>
+    <Link to = "/"><HeaderContainer>
     <h1 className = "pokeDexTitle">Pokedex</h1>
-    </HeaderContainer>
+    </HeaderContainer></Link>
     <Routes>
       <Route path="/" element = { <Home /> } />
       <Route path="/post" element = { <Post/> } />

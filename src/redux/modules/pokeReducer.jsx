@@ -1,6 +1,6 @@
 /* 포켓몬 도감 Post & Get 기능을 담는 리듀서 */
 
-import { collection, getDocs, addDoc, deleteDoc } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 // getDocs : for READ data
 // addDoc : for CREATE data
 
@@ -31,12 +31,9 @@ function addPoke (pokeData) {
     pokeData }
 }
 // [ DELETE ]
-function deletePoke(poke_index){
-  console.log("지울 버킷 인덱스", poke_index);
-  return { type : DELETE_POKE, poke_index};
-}
-
-
+//function deletePoke(poke_index){
+//  return { type : DELETE_POKE, poke_index};
+//}
 
 
 /* #4. FB Communication */
@@ -63,26 +60,6 @@ export const addPokeFB = (pokeData) => {                                  // pok
   }
 }
 
-// [ DELETE ]
-export const deletePokeFB = (poke_id) => {
-  return async function (dispatch, getState) {
-    if(!poke_id){
-      window.alert("아이디가 없어요!");
-      return;
-    }
-    const docRef = doc(db, "pokemon", poke_id);
-    await deleteDoc(docRef);
-
-    const _poke_list = getState().pokemon.list;
-    const poke_index = _poke_list.findIndex((b) => {
-      return b.id === poke_id;
-    });
-    dispatch(deletePoke(poke_index));
-  }
-}
-
-
-
 
 /* Reducer :: 실질적으로 store에 들어가서 data를 변경하는 아이 */
 
@@ -90,15 +67,9 @@ export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case LOAD_POKE : {
       return {list: action.poke_list}   // action 에서 가져오는 것과 state 에서 가져오는 것의 차이?
-    }
+    }              
     case ADD_POKE : {
       const newPokeList = [...state.list, action.pokeData];
-      return {list : newPokeList};
-    }
-    case DELETE_POKE : {
-      const newPokeList = state.list.filter((l, idx) => {
-        return parseInt(action.poke_index) !==idx;
-      });
       return {list : newPokeList};
     }
     default :
