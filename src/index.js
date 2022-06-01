@@ -8,15 +8,15 @@ import { Provider } from 'react-redux';
 import store from './redux/configStore';
 
 // Router setting
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store = {store}>
-        <BrowserRouter>
+        <HashRouter>
             <GlobalStyle/>
             <GlobalFonts/>
             <App />
-        </BrowserRouter>
+        </HashRouter>
     </Provider>
 )
