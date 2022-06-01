@@ -15,7 +15,7 @@ function Post() {
     const dispatch = useDispatch();
     const addPokeDex = () => {
       dispatch(addPokeFB(
-        {
+          {
           pokeIdx : idxRef.current.value,
           pokeName : nameRef.current.value,
           pokeStats : statsRef.current.value,
@@ -31,12 +31,12 @@ return (
       <h1>도감 등록하기</h1>
     </div>
     <PostingForm className = "posting-form">
-      <input ref = {idxRef}></input>
-      <input ref = {nameRef}></input>
-      <input ref = {typeRef}></input>
-      <input ref = {statsRef}></input>
-      <input ref = {storyRef}></input>
-      <button className = "posting-btn" onClick = {addPokeDex}> 피캇츄</button>
+      <input ref = {idxRef} placeholder = "도감 번호" required ></input>
+      <input ref = {nameRef} placeholder = "포켓몬 이름" required ></input>
+      <input ref = {typeRef} placeholder = "타입" required ></input>
+      <input ref = {statsRef} placeholder = "종족값" required ></input>
+      <input ref = {storyRef} placeholder = "설명" required ></input>
+      <button className = "posting-btn" onClick = {addPokeDex}> 도감 등록 </button>
     </PostingForm>
   </PostingWrap>
 );
