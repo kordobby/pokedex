@@ -5,6 +5,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 /* Pages setup */
 import Home from './pages/Home';
 import Post from './pages/Post';
+import Update from './pages/Update';
 
 /* CSS setup */
 import './App.css';
@@ -13,18 +14,30 @@ import styled from 'styled-components';
 /* FB setup */
 // import {db} from './firebase-config';
 // import { collection, getDocs } from "firebase/firestore";
-import { loadPokeFB } from './redux/modules/pokeReducer';
+// import { loadPokeFB } from './redux/modules/pokeReducer';
 
-/* Redux setup */
-import { useDispatch } from "react-redux";
-import { useEffect } from 'react';
+// /* Redux setup */
+// import { useDispatch } from "react-redux";
+// import { useEffect } from 'react';
+
+// import {db} from './firebase-config'
+// import { collection, getDocs } from "firebase/firestore";
 
 function App() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(loadPokeFB());
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(loadPokeFB());
+  // }, [dispatch])
+
+  // const usersCollectionRef = collection(db, "pokemon");
+  // useEffect(()=>{
+  //   const getUsers = async () => {
+  //     const data = await getDocs(usersCollectionRef);
+  //     console.log(data);
+  //   }
+  //   getUsers();
+  // },[])
 
   return (
     <>
@@ -34,6 +47,7 @@ function App() {
     <Routes>
       <Route path="/" element = { <Home /> } />
       <Route path="/post" element = { <Post/> } />
+      <Route path="/update/:id/:idx" element = {<Update />}></Route>
     </Routes>
     </>
   );
