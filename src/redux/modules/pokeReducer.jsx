@@ -3,6 +3,8 @@
 import { collection, getDocs, addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
 // getDocs : for READ data
 // addDoc : for CREATE data
+// deleteDoc : for DELETE data
+// addDoc : for CREATE data
 
 import { db } from "../../firebase-config";
 // connect DB
@@ -123,8 +125,6 @@ export const updatePokeFB = (payload, index) => async (dispatch) => {
   dispatch(updatePoke({payload, index}))
 };
 
-
-
 export default function pokeReducer(state = initialState, action = {}) {
   switch (action.type) {
     case LOAD_POKE : {
@@ -146,8 +146,7 @@ export default function pokeReducer(state = initialState, action = {}) {
       }) 
     };
     case UPDATE_POKE :
-      return {...state, list: [ ...state.list ]
-    }
+      return {...state, list: [ ...state.list ]}
     case GET_REQUEST:
       return { ...state, loading : action.payload};
     case REQ_SECCESS:

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import GlobalStyle from './GlobalStyle';
 import GlobalFonts from './fonts/fonts.js';
+
 // Redux setting
 import { Provider } from 'react-redux';
 import store from './redux/configStore';

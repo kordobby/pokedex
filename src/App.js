@@ -11,33 +11,8 @@ import Update from './pages/Update';
 import './App.css';
 import styled from 'styled-components';
 
-/* FB setup */
-// import {db} from './firebase-config';
-// import { collection, getDocs } from "firebase/firestore";
-// import { loadPokeFB } from './redux/modules/pokeReducer';
-
-// /* Redux setup */
-// import { useDispatch } from "react-redux";
-// import { useEffect } from 'react';
-
-// import {db} from './firebase-config'
-// import { collection, getDocs } from "firebase/firestore";
 
 function App() {
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(loadPokeFB());
-  // }, [dispatch])
-
-  // const usersCollectionRef = collection(db, "pokemon");
-  // useEffect(()=>{
-  //   const getUsers = async () => {
-  //     const data = await getDocs(usersCollectionRef);
-  //     console.log(data);
-  //   }
-  //   getUsers();
-  // },[])
 
   return (
     <>
@@ -45,9 +20,9 @@ function App() {
     <h1 className = "pokeDexTitle">Pokedex</h1>
     </HeaderContainer></Link>
     <Routes>
-      <Route path="/" element = { <Home /> } />
+      <Route path="/" element = { <Home/> } />
       <Route path="/post" element = { <Post/> } />
-      <Route path="/update/:id/:idx" element = {<Update />}></Route>
+      <Route path="/update/:id/:idx" element = {<Update/>}></Route>
     </Routes>
     </>
   );

@@ -9,12 +9,19 @@ function Home(  ) {
   // 카드에서 활용할 데이터 리스트 받아오기
   const myPokeList = useSelector((state) => state.pokeReducer.list);
 
+
   const dispatch = useDispatch();
 
     useEffect(() => {
       dispatch(loadPokeFB());
     }, [dispatch]);
 
+// useParam => 해당 페이지 컴포넌트가 가진 props를 이용해서 페이지 주소를 만들어줌
+/*
+1. Route 설정 : <Route path="/update/:id/:idx" element = {<Update/>}></Route>
+2. 위의 path 를 보면, /:id/:idx 이 부분은 해당 페이지 컴포넌트의 props 값을 이용해서 형성
+3. useParams 를 이용하면 해당 페이지의 parameter 를 꺼내와서 쓸 수 있음
+*/
 
 return (
   <>
@@ -28,7 +35,7 @@ return (
         pokeStory = {value.pokeStory} 
         pokeStats = {value.pokeStats}
         idx = {index}
-        id = {value.id}/>;
+        id = {value.id}/>;     // parameter
       })} { /* grid sons*/ }
     </MainGrid>
     <BtnPosition>
